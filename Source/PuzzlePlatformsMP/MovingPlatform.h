@@ -7,13 +7,13 @@
 #include "MovingPlatform.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class PUZZLEPLATFORMSMP_API AMovingPlatform : public AStaticMeshActor
 {
 	GENERATED_BODY()
-	
+
 public:
 	AMovingPlatform();
 
@@ -22,5 +22,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere)
-		float speed = 20;
+		float Speed = 20;
+
+	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true))
+		FVector TargetLocation;
+
+private:
+	FVector GlobalTargetLocation;
+	FVector GlobalStartLocation;
 };
